@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat1/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 import 'chat_screen.dart';
@@ -18,6 +19,22 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar(
+        // backgroundColor: 
+      
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: Text('Flash Chat', style: TextStyle(color: Colors.black),),
+        leading: IconButton(onPressed: (){
+          Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) =>  WelcomeScreen(),
+          ));
+        }, icon:Icon(Icons.arrow_back,color: Colors.black,) ),
+            ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: _isClicked
